@@ -57,6 +57,16 @@ def triangle():
         sendmsg("forward 100",8)
         sendmsg("cw 120")
 
+# Find battery
+def battery():
+        sendmsg("battery?")
+
+def flip():
+    sendmsg("up 75")
+    for i in range(1):
+        sendmsg("flip r")
+
+
 
 print("\nClayton Austin")
 print("Program Name: Test Flight ")
@@ -73,7 +83,7 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 # enter command
-        triangle()
+        square()
 
 
         sendmsg('land')
