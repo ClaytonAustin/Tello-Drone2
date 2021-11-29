@@ -63,8 +63,7 @@ def battery():
 
 def flip():
     sendmsg("up 75")
-    for i in range(1):
-        sendmsg("flip r")
+    sendmsg("flip r")
 
 
 
@@ -83,7 +82,7 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 # enter command
-        square()
+        flip()
 
 
         sendmsg('land')
