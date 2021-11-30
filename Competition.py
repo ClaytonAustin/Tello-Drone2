@@ -9,7 +9,7 @@ import threading, socket, sys, time, subprocess
 host = ''
 port = 9000
 locaddr = (host,port)
-tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
+tello_address = ('192.168.10.1', 8895) # Get the Tello drone's address
 
 
 
@@ -30,7 +30,7 @@ def recv():
             break
 
 
-def sendmsg(msg, sleep = 6):
+def sendmsg(msg, sleep = 7):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
@@ -44,6 +44,8 @@ recvThread.start()
 # CREATE FUNCTIONS HERE....
 
 def firstHoop():
+    sendmsg("up 75")
+    sendmsg("forward 300")
 
 '''def secondHoop():
 
@@ -66,8 +68,7 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        # Review the (SDK) Software Development Kit resource for Drone Commands
-        # Delete these comments before writing your program
+        firstHoop()
 
         sendmsg('land')
 
