@@ -45,11 +45,14 @@ recvThread.start()
 
 def firstHoop():
     sendmsg("up 75")
-    sendmsg("forward 300")
+    sendmsg("forward 175", 8)
 
-'''def secondHoop():
 
-def thirdHoop():
+
+def secondHoop():
+    sendmsg("go 300 75 0 35", 8 1`)
+
+'''def thirdHoop():
     
 def fourthHoop():'''
 
