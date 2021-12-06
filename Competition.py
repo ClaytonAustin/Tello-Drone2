@@ -9,7 +9,7 @@ import threading, socket, sys, time, subprocess
 host = ''
 port = 9000
 locaddr = (host,port)
-tello_address = ('192.168.10.1', 8895) # Get the Tello drone's address
+tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
 
 
 
@@ -30,7 +30,7 @@ def recv():
             break
 
 
-def sendmsg(msg, sleep = 7):
+def sendmsg(msg, sleep = 6):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
@@ -42,23 +42,31 @@ recvThread.start()
 
 
 # CREATE FUNCTIONS HERE....
-
+def battery():
+    sendmsg("battery?")
 def firstHoop():
-    sendmsg("up 75")
+    sendmsg("up 20")
     sendmsg("forward 175", 8)
 
 
-
 def secondHoop():
-    sendmsg("go 300 75 0 35", 8 1`)
+    sendmsg("go 250 0 40 70", 8)
 
-'''def thirdHoop():
-    
-def fourthHoop():'''
 
-print("\nTeam: Austin Vanlandegent ")
-print("Program Name: Hoop Compitition")
-print("Date: 11.29.21")
+
+
+def thirdHoop():
+    sendmsg("curve -100 -100 40 100 0 35", 8)
+
+
+
+'''def fourthHoop():'''
+
+
+
+print("\nTeam: Austin VanLandegent")
+print("Program Name: Hoop Competition ")
+print("Date: 11.29.2021 ")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
@@ -72,7 +80,8 @@ try:
         sendmsg('takeoff')
 
         firstHoop()
-
+        secondHoop()
+        thirdHoop()
         sendmsg('land')
 
         print('\nGreat Flight!!!')
