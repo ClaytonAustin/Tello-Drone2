@@ -55,8 +55,8 @@ def secondHoop():
 
 
 
-def thirdHoop():
-    sendmsg("curve -100 -100 40 100 0 35", 8)
+'''def thirdHoop():
+    sendmsg("curve -100 -100 40 100 0 35", 8)'''
 
 
 
